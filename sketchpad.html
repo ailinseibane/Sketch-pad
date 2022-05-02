@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="./sketchpad.js" defer></script>
-        <link rel="stylesheet" href="./style.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;500;800&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <h1>SKETCH UP GAME</h1>
-        </header>
-        <div>
-            <label>Ingrese cantidad de filas aquí</label><input type="number" name="rows" value="20">
-            <br>
-            <input class="button" type="button" value="Limpiar">
+
+<head>
+    <script src="./sketchpad.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;500;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>SKETCH UP GAME</h1>
+    </header>
+    <main>
+        <div class="extras">
+            <div>
+                <label>Seleccionar tamaño de cuadrícula: </label>
+                <input type="text" id="row_input" value="10">
+                <button onclick="change_grid()">Aplicar</button>
+            </div>
+            <div>
+                <button onclick="limpiar()">Limpiar grilla</button>
+            </div>
         </div>
         <div id="div0" class="div0">
-            <div id="container" class="div1"></div>
+            <div class="div1" id="container"></div>
         </div>
-    </body>
+    </main>
+</body>
+
 </html>

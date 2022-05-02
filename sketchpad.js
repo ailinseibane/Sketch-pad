@@ -1,30 +1,56 @@
 
 const container = document.getElementById("container");
 
-function makeRows(rows, cols) {
+function makeRows(rows) {
+  console.log(rows)
   container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
-    const cell = document.createElement("div");
+
+  for (i = 1; i <= (rows * rows); i++) {
+    const cell = document.createElement(`div`);
     container.appendChild(cell);
-    cell.classList.add('box');
-    cell.style.width=(container.width/cols);
-    cell.style.height=(container.height/rows);
+    cell.classList.add("box",i);
+    cell.style.width = (container.width / rows);
+    cell.style.height = (container.height / rows);
+    console.log(i)
   };
+
+  box = container.querySelectorAll(".box")
+  box.forEach(element => {
+    element.addEventListener('mouseover', colorChange)
+  });
+
+  limpiar()
+
+
 };
 
+makeRows(10);
 
+var input_grid = document.querySelector("#row_input");
 
-makeRows(20,20);
+function change_grid(e) {
+  input_grid_value = input_grid.value;
+  console.log(input_grid_value)
+  boxes = document.querySelectorAll(".box, .active");
 
-box=container.querySelectorAll(".box")
+  for (i = 0; i < boxes.length; i++) {
+    boxes[i].remove();
+  }
 
-box.forEach(element => {
-    element.addEventListener('mouseover',colorChange)
-});
+  makeRows(input_grid_value, input_grid_value)
 
-
-function colorChange(e){
-    e.target.className='active'
 }
+
+
+function colorChange(e) {
+  e.target.className = 'active'
+}
+
+function limpiar() {
+  box.forEach(element => {
+    element.classList.remove("active")
+    element.classList.add("box")
+  })
+}
+
 
