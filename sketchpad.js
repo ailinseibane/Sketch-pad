@@ -30,14 +30,20 @@ var input_grid = document.querySelector("#row_input");
 
 function change_grid(e) {
   input_grid_value = input_grid.value;
-  console.log(input_grid_value)
-  boxes = document.querySelectorAll(".box, .active");
 
-  for (i = 0; i < boxes.length; i++) {
-    boxes[i].remove();
+  if(input_grid_value<100 && input_grid_value>0){
+    console.log(input_grid_value)
+    boxes = document.querySelectorAll(".box, .active");
+  
+    for (i = 0; i < boxes.length; i++) {
+      boxes[i].remove();
+    }
+  
+    makeRows(input_grid_value, input_grid_value)
+  }else{
+    alert("Usar un número mayor que 0 y menor a 100");
   }
-
-  makeRows(input_grid_value, input_grid_value)
+  
 
 }
 

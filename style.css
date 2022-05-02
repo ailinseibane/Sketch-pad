@@ -30,8 +30,8 @@ main {
   text-align: center;
   background-color: black;
   width: 80%;
-  margin: 0 auto;
-  height: auto;
+  margin: 1em auto;
+  padding: 1em;
 }
 
 #container {
@@ -60,5 +60,12 @@ button {
   background-color: goldenrod;
   color: black;
   font-family: 'Dosis', sans-serif;
+  width: 50%;
+  margin: 2em;
 
+}
+
+input{
+  width: 40%;
+  text-align: center;
 }
