@@ -53,7 +53,7 @@ main {
 .active {
 
   border: 1px solid black;
-  background-color: goldenrod;
+  background-color: hsl(43, 74%, 49%);
 }
 
 button {

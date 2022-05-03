@@ -15,10 +15,24 @@
     </header>
     <main>
         <div class="extras">
-            <div>
-                <label>Seleccionar tamaño de cuadrícula: </label>
+            <div class="grid_size_input">
+                <h3>Seleccionar tamaño de cuadrícula</h3>
+               
                 <input type="text" id="row_input" value="10">
                 <button onclick="change_grid()">Aplicar</button>
+            </div>
+            <div class="selector">
+                <h3>Seleccionar color de trazo</h3>
+                <form action="">
+                    <input type="radio" id="color_black" name="colores"> <label for="color_black">Negro</label><br>
+                    <input type="radio" id="color_rainbow" name="colores"> <label for="color_rainbow">Rainbow</label><br>
+                    <input type="radio" id="color_other" name="colores"> <label for="color_other">Otro</label><br><br>
+                </form>
+            </div>
+
+            <div class="colors">
+                <label>Seleccionar color de relleno: </label>
+                <input type="color" id="color_input" value="#000000">
             </div>
             <div>
                 <button onclick="limpiar()">Limpiar grilla</button>

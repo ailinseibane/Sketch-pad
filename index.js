@@ -8,7 +8,7 @@ function makeRows(rows) {
   for (i = 1; i <= (rows * rows); i++) {
     const cell = document.createElement(`div`);
     container.appendChild(cell);
-    cell.classList.add("box",i);
+    cell.classList.add("box", i);
     cell.style.width = (container.width / rows);
     cell.style.height = (container.height / rows);
     console.log(i)
@@ -31,31 +31,47 @@ var input_grid = document.querySelector("#row_input");
 function change_grid(e) {
   input_grid_value = input_grid.value;
 
-  if(input_grid_value<100 && input_grid_value>0){
+  if (input_grid_value < 100 && input_grid_value > 0) {
     console.log(input_grid_value)
-    boxes = document.querySelectorAll(".box, .active");
-  
+    boxes = document.querySelectorAll(".box");
+
     for (i = 0; i < boxes.length; i++) {
       boxes[i].remove();
     }
-  
+
     makeRows(input_grid_value, input_grid_value)
-  }else{
+  } else {
     alert("Usar un número mayor que 0 y menor a 100");
   }
-  
+
 
 }
 
 
 function colorChange(e) {
-  e.target.className = 'active'
+  var input_rainbow = document.querySelector("#color_rainbow")
+  var input_black = document.querySelector("#color_black")
+  var input_other = document.querySelector("#color_other")
+  if (input_rainbow.checked === true) {
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    e.target.style.backgroundColor = "#" + randomColor
+
+  } else if (input_other.checked === true) {
+ 
+    var color=document.querySelector("#color_input").value
+    e.target.style.backgroundColor = color;
+    
+
+  } else {
+    e.target.style.backgroundColor = "black"
+
+  }
+
 }
 
 function limpiar() {
   box.forEach(element => {
-    element.classList.remove("active")
-    element.classList.add("box")
+    element.style.backgroundColor = 'white'
   })
 }
 
