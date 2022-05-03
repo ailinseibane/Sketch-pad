@@ -24,22 +24,29 @@ function makeRows(rows) {
 
 };
 
-makeRows(10);
+makeRows(16);
 
-var input_grid = document.querySelector("#row_input");
+var input_grid = document.querySelector("#grid_range");
+var par= document.querySelector(".output_grid_range");
 
-function change_grid(e) {
-  input_grid_value = input_grid.value;
+input_grid.addEventListener('input',function(){
+  par.innerHTML=`${input_grid.value} x ${input_grid.value}`;
+  change_grid();
+})
 
-  if (input_grid_value < 100 && input_grid_value > 0) {
-    console.log(input_grid_value)
+
+function change_grid() {
+  
+
+  if (input_grid.value < 100 && input_grid.value > 0) {
+    console.log(input_grid.value)
     boxes = document.querySelectorAll(".box");
 
     for (i = 0; i < boxes.length; i++) {
       boxes[i].remove();
     }
 
-    makeRows(input_grid_value, input_grid_value)
+    makeRows(input_grid.value, input_grid.value)
   } else {
     alert("Usar un número mayor que 0 y menor a 100");
   }
